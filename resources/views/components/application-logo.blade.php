@@ -1,0 +1,1 @@
+<img src="{{asset('images/logo.webp')}}" alt="SIC" class=" max-h-8 max-w-8 rounded-full">
