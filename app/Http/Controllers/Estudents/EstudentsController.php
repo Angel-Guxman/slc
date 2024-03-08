@@ -90,5 +90,7 @@ class EstudentsController extends Controller
     public function destroy(string $id)
     {
         //
+        Student::destroy($id);
+        return redirect()->route('students') -> with('notificacion','El estudiante se ha eliminado correctamente');
     }
 }

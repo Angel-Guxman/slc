@@ -18,40 +18,54 @@
                     <div class="p-6 bg-white border-b border-gray-200">
                         <h1 class="text-lg leading-6 font-medium text-gray-900">Lista de Estudiantes</h1>
                         <div class="mt-4">
-                            <table class="min-w-full divide-y  divide-gray-200">
+                            <table class="min-w-full divide-y  divide-gray-200 ">
                                 <thead class="bg-slate-500">
-                                    <tr >
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    <tr class=" " >
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                             Nombre
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                             Apellido
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                             Email
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        <th scope="col" class=" px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                             Comentario
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
+                                            Acciones
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                                          
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     @foreach($students as $student)
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <tr class=" ">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
                                                 {{$student->name_student}}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
                                                 {{$student->lastname_student}}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
                                                 {{$student->email_student}}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
                                                 {{$student->comments}}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('students.edit', $student->id) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                            <td class=" whitespace-nowrap text-center align-middle text-sm font-medium">
+                                                <a href="{{ route('students.edit', $student->id) }}" class="text-indigo-600 hover:text-indigo-900 ">Editar</a>
+                                            </td>
+                                            <td class=" whitespace-nowrap text-left align-middle text-sm font-medium">
+                                                <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-indigo-600 hover:text-indigo-900 ">Eliminar</button>
+                                                </form>
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

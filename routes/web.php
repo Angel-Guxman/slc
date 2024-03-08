@@ -55,6 +55,9 @@ Route::post('/students', [EstudentsController::class, 'store'])->name('students.
  //ruta para actualizar un Estudiante:
  Route::put('/students/{student}', [EstudentsController::class, 'update'])->name('students.update');
 
+ //ruta para eliminar un Estudiante
+ Route::delete('students/{student}',[EstudentsController::class,'destroy'])->name('students.destroy');
+
 Route::get('/subjects',[SubjectController::class,'index'])->name('subjects.index');
 
 require __DIR__.'/auth.php';
