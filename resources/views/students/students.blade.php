@@ -34,6 +34,9 @@
                                             Comentario
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
+                                            
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
                                             Acciones
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
@@ -41,7 +44,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-white divide-y divide-gray-200 ">
                                     @foreach($students as $student)
                                         <tr class=" ">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
@@ -53,19 +56,22 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
                                                 {{$student->email_student}}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center align-middle">
+                                            <td class="px-6 py-4  text-sm text-gray-500 text-center align-middle ">
                                                 {{$student->comments}}
                                             </td>
                                             <td class=" whitespace-nowrap text-center align-middle text-sm font-medium">
                                                 <a href="{{ route('students.edit', $student->id) }}" class="text-indigo-600 hover:text-indigo-900 ">Editar</a>
                                             </td>
-                                            <td class=" whitespace-nowrap text-left align-middle text-sm font-medium">
+                                            <td class=" whitespace-nowrap text-center align-middle text-sm font-medium">
                                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="text-indigo-600 hover:text-indigo-900 ">Eliminar</button>
                                                 </form>
                                                 
+                                            </td>
+                                            <td class="whitespace-nowrap  align-middle text-sm font-medium text-left">
+                                                <a href="{{ route('students.show', $student->id) }}" class="text-indigo-600 hover:text-indigo-900">Ver Detalles</a>
                                             </td>
                                         </tr>
                                     @endforeach

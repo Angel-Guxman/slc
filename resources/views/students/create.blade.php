@@ -11,16 +11,19 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://kit.fontawesome.com/58362e24f4.js" crossorigin="anonymous"></script>
-    <header class=" flex justify-around items-center border py-3">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-              Crea un Nuevo Estudiante
+    <x-app-layout>
+
+        <script src="https://kit.fontawesome.com/58362e24f4.js" crossorigin="anonymous"></script>
+        <x-slot name="content">
+        <header class=" flex justify-around items-center border py-3">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Crea un Nuevo Estudiante
           </h2>
           <a href="{{route('students')}}" class=" border  p-2 rounded-lg text-white bg-slate-500 hover:bg-slate-600">
-           Regresar
+            Regresar
             <i class="fa-solid fa-rotate-left"></i>
         </a>
-      </header>
+    </header>
     
     <div class="max-w-lg mx-auto my-10 bg-white p-8 rounded-lg shadow-xl">
         <h1 class="text-2xl font-bold mb-6">Crear Estudiante</h1>
@@ -67,9 +70,11 @@
             </div>
         </form>
     </div>
+</x-slot>
     
     
     
+</x-app-layout>
     
 </body>
 </html>

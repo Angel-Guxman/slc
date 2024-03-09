@@ -34,7 +34,7 @@ class EstudentsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name_student' => 'required|max:50',
+            'name_student' => 'required|max:50|min:2',
             'lastname_student' => 'required|max:50',
             'id_student' => 'required|numeric|unique:students,id_student',
             'email_student' => 'required|email|unique:students,email_student',
@@ -55,14 +55,12 @@ class EstudentsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Student $student)
     {
-        //consulta con Eloquent
-        $student=Student::find($id);
-        return view ('show-student',compact('student'));
-
+        // Asegúrate de reemplazar 'Student' con el nombre real de tu modelo si es diferente
+        return view('show-student', compact('student'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

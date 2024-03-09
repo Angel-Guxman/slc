@@ -39,6 +39,7 @@ Route::get('/students', function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); 
 
+Route::middleware('secure')->group(function () {
 // Ruta para manejar la publicación del formulario (almacenar el estudiante) frtdgdg
 Route::get('/students/create', [EstudentsController::class, 'create'])->name('students.create');
 
@@ -59,5 +60,11 @@ Route::post('/students', [EstudentsController::class, 'store'])->name('students.
  Route::delete('students/{student}',[EstudentsController::class,'destroy'])->name('students.destroy');
 
 Route::get('/subjects',[SubjectController::class,'index'])->name('subjects.index');
+Route::get('/students/{student}', [EstudentsController::class, 'show'])->name('students.show');
+}); 
+
+Route::get('/noauth',function (){
+    return view('auth.noauth');
+})->name('noauth');
 
 require __DIR__.'/auth.php';

@@ -35,6 +35,26 @@
                 {{ $content }} 
           
             </main>
+            <footer class="bg-white border-t border-gray-200">
+                <div class="container mx-auto px-4 py-6">
+                    <div class="flex flex-wrap justify-between items-center">
+                        <div class="flex items-center">
+                            <img src="{{asset('images/logo.webp')}}" alt="Logo" class="rounded-full h-8 w-8 mr-2">
+                            <span class="text-gray-700 text-sm font-semibold">SIC</span>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <a href="#" class="hover:underline">Inicio</a>
+                            <a href="#" class="hover:underline">Sobre Nosotros</a>
+                            <a href="#" class="hover:underline">Servicios</a>
+                            <a href="#" class="hover:underline">Contacto</a>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center text-sm text-gray-600">
+                        © {{ date('Y') }} Tu Empresa o Proyecto. Todos los derechos reservados.
+                    </div>
+                </div>
+            </footer>
+            
         </div>
     </body>
 </html>
