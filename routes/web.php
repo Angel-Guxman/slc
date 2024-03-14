@@ -61,6 +61,9 @@ Route::post('/students', [EstudentsController::class, 'store'])->name('students.
 
 Route::get('/subjects',[SubjectController::class,'index'])->name('subjects.index');
 Route::get('/students/{student}', [EstudentsController::class, 'show'])->name('students.show');
+Route::get('/students/{student}', [EstudentsController::class, 'show'])->name('students.show');
+Route::get('/students/report/{id}', [EstudentsController::class, 'report'])->name('students.report');
+
 }); 
 
 Route::get('/noauth',function (){

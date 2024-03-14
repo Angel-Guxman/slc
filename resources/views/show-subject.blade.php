@@ -25,6 +25,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
+                                  
                                     @foreach ($units as $unit)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -40,6 +41,14 @@
                         </div>
                         <h2 class="text-lg font-medium mt-6">Nombre de la asignatura</h2>
                         <p class="mt-1">{{$subject[0]->subject_name}}</p>
+
+                        <h1 class=" font-bold text-lg">Lista de actividades</h1>
+                    @foreach ( $activities  as $act)
+                    <h1 class=" ">Nombre de la Actividad: {{$act->activity_name}}</h1>
+                    <h2>Unidad: {{$act->units_id}}</h2>
+                    <h2>Porcentaje: {{$act->percentage}}</h2>      
+                    @endforeach
+                    
                     </div>
                 </div>
             </div>

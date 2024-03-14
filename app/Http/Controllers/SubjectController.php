@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use App\Models\Unit;
 use App\Models\Subject;
 use Illuminate\Http\Request;
@@ -16,8 +17,10 @@ class SubjectController extends Controller
         //
         $units=Subject::find(1)->units()->get();
         $subject=Unit::find(2)->subject()->get();
+
+        $activities=Student::find(1)->activities()->get();
        
-        return view('show-subject',compact('units','subject'));
+        return view('show-subject',compact('units','subject','activities'));
     }
 
     /**

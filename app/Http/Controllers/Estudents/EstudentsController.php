@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Estudents;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -57,9 +57,30 @@ class EstudentsController extends Controller
      */
     public function show(Student $student)
     {
-        // Asegúrate de reemplazar 'Student' con el nombre real de tu modelo si es diferente
-        return view('show-student', compact('student'));
+        // Carga las actividades del estudiante usando eager loading
+        $studentWithActivities = Student::with('activities')->find($student->id);
+
+        
+   
+        // Pasar el estudiante con sus actividades a la vista
+        return view('show-student', compact('studentWithActivities'));
     }
+    public function report(string $id)
+    {
+        // Cargar la información del estudiante y sus actividades
+        $studentWithActivities = Student::with('activities')->findOrFail($id);
+    
+        try {
+            // Generar el PDF
+            $pdf = Pdf::loadView('pdf.student-report', compact('studentWithActivities'));
+            return $pdf->stream('student-report.pdf');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+    }
+    
+    
     
     /**
      * Show the form for editing the specified resource.

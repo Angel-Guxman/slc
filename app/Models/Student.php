@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Student extends Model
 {
@@ -17,4 +18,8 @@ class Student extends Model
     'email_student',
     'password_student',
     'comments',];
+
+    public function activities():BelongsToMany {
+        return $this->belongsToMany(Activity::class, 'students_has_activities', 'students_id', 'activities_id');
+    }
 }
